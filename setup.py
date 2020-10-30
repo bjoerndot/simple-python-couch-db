@@ -11,7 +11,7 @@ setuptools.setup(
     description="Simple adapter to use CouchDB with Python.",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/bjoerndot",
+    url="https://github.com/bjoerndot/simple-python-couch-db",
     packages=setuptools.find_packages(),
     classifiers=[
         "License :: OSI Approved :: MIT License",
