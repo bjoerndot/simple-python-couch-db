@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="simple_python_couch_db",
-    version="0.0.2",
+    version="0.1.0",
     author="Oliver Schwamb",
     author_email="mail@oliverschwamb.de",
     description="Simple adapter to use CouchDB with Python.",
