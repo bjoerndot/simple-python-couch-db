@@ -200,3 +200,27 @@ class Database:
         data = {'docs': [{'id': d} for d in document_keys]}
         documents = requests.post(f'{self.get_db_url()}/_bulk_get', json=data)
         return documents.json()
+
+    def get_view_url(self, view_doc, view_index):
+        """Constructs an URL to a given view
+
+        Args:
+            view_doc (str): Name of the views 'Design Document'
+            view_index (str): Name of the views 'Index name'
+
+        Returns:
+            str: URL-string for the view
+        """
+        return f'{self.get_db_url()}/_design/{view_doc}/_view/{view_index}'
+
+    def get_view_documents(self, view_doc, view_index, key=None):
+        """Get documents from a given view and key.
+
+        Returns:
+            list: List of documents
+        """
+        view_url = self.get_view_url(view_doc, view_index)
+        if key and key != '':
+            view_url = f'{view_url}?key="{key}"'
+        documents = requests.get(view_url)
+        return documents.json()
