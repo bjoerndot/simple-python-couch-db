@@ -221,6 +221,6 @@ class Database:
         """
         view_url = self.get_view_url(view_doc, view_index)
         if key and key != '':
-            view_url = f'{view_url}?key="{key}"'
+            view_url = f'{view_url}?key={key}'
         documents = requests.get(view_url)
         return documents.json()
